@@ -54,56 +54,26 @@ namespace ListClass
             }
 
             DtgListPreparate.ItemsSource = ConnectHelper.pharmacies;
-            //pharmacies.Add(new Pharmacy("Цитрамон", 100, 199.90, 36));
-            //pharmacies.Add(new Pharmacy("Парацетамол", 200, 279.90, 24));
-            //pharmacies.Add(new Pharmacy("Нурофен", 255, 356.90, 24));
-            //pharmacies.Add(new Pharmacy("Спазган", 99, 555.01, 36));
-            //pharmacies.Add(new Pharmacy("Витамин C", 1000, 50.00, 12));
-            //pharmacies.Add(new Pharmacy("Зодак", 5, 356.90, 24));
-            //pharmacies.Add(new Pharmacy("Ибупрофен", 35, 555.01, 36));
-            //pharmacies.Add(new Pharmacy("Пенталгин", 8, 50.00, 12));
         }
 
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
             DtgListPreparate.ItemsSource = ConnectHelper.students.ToList();
-            DtgListPreparate.SelectedIndex = -1;
-           
-        }
-        /// <summary>
-        /// сортировка по алфавиту
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+            DtgListPreparate.SelectedIndex = -1;}
         private void RbUp_Checked(object sender, RoutedEventArgs e)
         {
             DtgListPreparate.ItemsSource = ConnectHelper.students.OrderBy(x=>x.SetFIO).ToList();
         }
-        /// <summary>
-        /// сортировка в обратном порядке
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void RbDown_Checked(object sender, RoutedEventArgs e)
         {
             DtgListPreparate.ItemsSource = ConnectHelper.students.OrderByDescending(x => x.SetFIO).ToList();
         }
-        /// <summary>
-        /// поиск по названию
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             DtgListPreparate.ItemsSource = ConnectHelper.students.Where(x => 
                 x.SetFIO.ToLower().Contains(TxtSearch.Text.ToLower())).ToList();
         }
 
-       /// <summary>
-       /// фильтр по количеству
-       /// </summary>
-       /// <param name="sender"></param>
-       /// <param name="e"></param>
         private void CmbFiltr_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
@@ -135,23 +105,6 @@ namespace ListClass
         {
             WindowAddPreparate windowAdd = new WindowAddPreparate();
             windowAdd.ShowDialog();
-        }
-
-       
-
-        private void BtnClear_Click(object sender, RoutedEventArgs e)
-        {
-            DtgListPreparate.ItemsSource = null;
-        }
-
-        private void BtnEdit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnDelete_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
       
